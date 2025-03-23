@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Future Predictor</title>
+
+    <style>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+        body { background: linear-gradient(to right, #ff512f, #dd2476); color: white; text-align: center; padding: 20px; }
+
+        #container { max-width: 400px; margin: auto; padding: 20px; background: rgba(0,0,0,0.2); border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+
+        h1 { font-size: 24px; margin-bottom: 15px; }
+
+        input, button { width: 100%; padding: 10px; margin: 10px 0; font-size: 16px; border: none; border-radius: 5px; }
+
+        input { background: #fff; color: #333; }
+
+        button { background: #ff9800; color: white; cursor: pointer; transition: 0.3s; }
+
+        button:hover { background: #e68900; }
+
+        #resultBox { display: none; margin-top: 20px; text-align: left; }
+
+        .emoji { font-size: 20px; margin-right: 5px; }
+
+        .result-item { font-size: 18px; margin-bottom: 8px; }
+
+        #footer { margin-top: 20px; font-size: 14px; opacity: 0.8; }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="container">
+
+        <!-- First Screen: User Input -->
+
+        <div id="inputBox">
+
+            <h1>🔮 Enter Your Birthdate</h1>
+
+            <input type="date" id="dob">
+
+            <button onclick="generatePrediction()">Predict My Future</button>
+
+        </div>
+
+        <!-- Second Screen: Results -->
+
+        <div id="resultBox">
+
+            <h1>Your Prediction 🔥</h1>
+
+            <p class="result-item"><span class="emoji">🧠</span> Brain Type: <span id="brain"></span></p>
+
+            <p class="result-item"><span class="emoji">🏆</span> Success Score: <span id="success"></span>%</p>
+
+            <p class="result-item"><span class="emoji">🍀</span> Luck Factor: <span id="luck"></span>%</p>
+
+            <p class="result-item"><span class="emoji">💰</span> Wealth Level: <span id="wealth"></span></p>
+
+            <p class="result-item"><span class="emoji">💍</span> Marriage Timing: <span id="marriage"></span></p>
+
+            <p class="result-item"><span class="emoji">❤️</span> Crush's Name Starts With: <span id="crush"></span></p>
+
+            <p class="result-item"><span class="emoji">👶</span> Future Kids: <span id="kids"></span></p>
+
+            <p class="result-item"><span class="emoji">🌆</span> Dream City: <span id="city"></span></p>
+
+            <p class="result-item"><span class="emoji">🎵</span> Favorite Music: <span id="music"></span></p>
+
+            <p class="result-item"><span class="emoji">💼</span> Future Career: <span id="career"></span></p>
+
+            <div id="footer">🔥 Powered by <b>Vortex Lab</b></div>
+
+        </div>
+
+    </div>
+
+<script>
+
+    // Random Selection Function
+
+    function randomItem(arr) {
+
+        return arr[Math.floor(Math.random() * arr.length)];
+
+    }
+
+    // Data Arrays
+
+    const brain = ["Left-Brained (Logical)", "Right-Brained (Creative)", "Balanced Thinker"];
+
+    const success = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+    const luck = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+
+    const wealth = ["Low", "Medium", "High", "Very High", "Ultra Rich"];
+
+    const marriage = ["Early", "Late", "Not Sure"];
+
+    const crush = ["A", "B", "C", "D", "E", "F", "G", "H", "M", "N", "P", "R"];
+
+    const kids = [0, 1, 2, 3, 4, 5];
+
+    const city = ["New York", "Tokyo", "Paris", "London", "Dubai", "Los Angeles"];
+
+    const music = ["Rock", "Jazz", "Pop", "Classical", "Hip-Hop", "EDM", "Metal"];
+
+    const career = ["Doctor", "Engineer", "Artist", "Entrepreneur", "Scientist", "YouTuber"];
+
+    function generatePrediction() {
+
+        let dob = document.getElementById("dob").value;
+
+        if (!dob) {
+
+            alert("Please enter your birthdate!");
+
+            return;
+
+        }
+
+        // Hide Input Box & Show Result
+
+        document.getElementById("inputBox").style.display = "none";
+
+        document.getElementById("resultBox").style.display = "block";
+
+        // Set Predictions
+
+        document.getElementById("brain").textContent = randomItem(brain);
+
+        document.getElementById("success").textContent = randomItem(success);
+
+        document.getElementById("luck").textContent = randomItem(luck);
+
+        document.getElementById("wealth").textContent = randomItem(wealth);
+
+        document.getElementById("marriage").textContent = randomItem(marriage);
+
+        document.getElementById("crush").textContent = randomItem(crush);
+
+        document.getElementById("kids").textContent = randomItem(kids);
+
+        document.getElementById("city").textContent = randomItem(city);
+
+        document.getElementById("music").textContent = randomItem(music);
+
+        document.getElementById("career").textContent = randomItem(career);
+
+    }
+
+</script>
+
+</body>
+
+</html>
